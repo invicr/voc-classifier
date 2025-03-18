@@ -8,6 +8,15 @@
 - 시스템 프롬프트와 유저 프롬프트를 통한 데이터 분석
 - 변수 치환을 통한 동적 프롬프트 생성
 - 분석 결과 JSON 형식 출력
+- Azure OpenAI API 연동
+
+## 스크린샷
+
+### 메인 화면
+![메인 화면](docs/images/main-screen.png)
+
+### 데이터 분석 결과
+![분석 결과](docs/images/analysis-result.png)
 
 ## 기술 스택
 
