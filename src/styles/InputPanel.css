@@ -1,0 +1,109 @@
+.input-panel-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropzone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropzone:hover {
+  border-color: #3498db;
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.dropzone p {
+  font-size: 18px;
+  color: #666;
+}
+
+.file-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.file-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.view-mode-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.view-mode-buttons button {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.view-mode-buttons button.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.data-preview {
+  flex: 1;
+  overflow: auto;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
+
+.data-preview pre {
+  margin: 0;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.data-preview table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-preview th, 
+.data-preview td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-preview th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.upload-again-button {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  color: white;
+} 
