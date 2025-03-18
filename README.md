@@ -13,10 +13,10 @@
 ## 스크린샷
 
 ### 메인 화면
-![메인 화면](docs/images/main-screen.png)
+![메인 화면](docs/images/main.jpg)
 
 ### 데이터 분석 결과
-![분석 결과](docs/images/analysis-result.png)
+![분석 결과](docs/images/result.jpg)
 
 ## 기술 스택
 
