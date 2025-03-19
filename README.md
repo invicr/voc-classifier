@@ -18,6 +18,10 @@
 ### 데이터 분석 결과
 ![분석 결과](docs/images/result.jpg)
 
+### 데모 영상
+![데모 영상](docs/images/VOC.mp4)
+
+
 ## 기술 스택
 
 - React
