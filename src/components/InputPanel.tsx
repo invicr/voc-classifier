@@ -10,7 +10,7 @@ interface InputPanelProps {
 const InputPanel: React.FC<InputPanelProps> = ({ onDataProcessed }) => {
   const [file, setFile] = useState<File | null>(null);
   const [data, setData] = useState<any[]>([]);
-  const [viewMode, setViewMode] = useState<ViewMode>('json');
+  const [viewMode, setViewMode] = useState<ViewMode>('table');
   const [isLoading, setIsLoading] = useState(false);
   const [fileContent, setFileContent] = useState<string>('');
   const [fileName, setFileName] = useState<string>('');
@@ -273,16 +273,16 @@ const InputPanel: React.FC<InputPanelProps> = ({ onDataProcessed }) => {
           <p><strong>파일:</strong> {file.name}</p>
           <div className="view-mode-buttons">
             <button 
-              className={viewMode === 'json' ? 'active' : ''} 
-              onClick={() => setViewMode('json')}
-            >
-              JSON
-            </button>
-            <button 
               className={viewMode === 'table' ? 'active' : ''} 
               onClick={() => setViewMode('table')}
             >
               Table
+            </button>
+            <button 
+              className={viewMode === 'json' ? 'active' : ''} 
+              onClick={() => setViewMode('json')}
+            >
+              JSON
             </button>
           </div>
         </div>
