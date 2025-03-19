@@ -19,7 +19,7 @@
 ![분석 결과](docs/images/result.jpg)
 
 ### 데모 영상
-![분석 결과](https://raw.githubusercontent.com/invicr/voc-classifier/main/docs/images/VOC.mp4)
+[데모 영상](https://raw.githubusercontent.com/invicr/voc-classifier/main/docs/images/VOC.mp4)
 
 ## 기술 스택
 
