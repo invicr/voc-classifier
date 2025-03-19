@@ -12,7 +12,7 @@ const PromptPanel: React.FC<PromptPanelProps> = ({ onSubmit, data }) => {
 
 ### 분류 기준
 ✅ 관심 기사 (is_interested = true, score 5~10)
-- 주요 빅테크 및 글로벌 기술 기업(Google, OpenAI, Meta, NVIDIA, Microsoft, DeepSeek, Anthropic, Perplexity, Mistral, x.AI 등)이 발표한 생성형 AI 관련 기술적인 세부 내용
+- 주요 빅테크 및 글로벌 기술 기업(Google(구글), OpenAI(오픈AI), Meta(메타), NVIDIA(엔비디아), Microsoft(마이크로소프트), DeepSeek, Anthropic(앤트로픽), Perplexity(퍼플렉시티), Mistral(미스트랄), x.AI(그록) 등)이 발표한 생성형 AI 관련 기술적인 세부 내용
 - LLM의 새로운 아키텍처 및 원천 기술 변화 (예: DLM(Diffusion Language Model), Mixture of Experts(MoE), Sparse Attention, Retrieval-Augmented Generation(RAG), LLM 최적화 기법, 추론 모델, LMM 모델, 멀티모달 등)
 - Llama(라마), GPT-4o, o1, o3, Claude, DeepSeek 등 글로벌 기업의 LLM 모델 관련된 기사
 
@@ -25,17 +25,16 @@ const PromptPanel: React.FC<PromptPanelProps> = ({ onSubmit, data }) => {
 ### 점수 (score) 부여 기준 (0~10점)
 - 9~10: 매우 중요한 생성형 AI 원천 기술 관련 발표 (예: 새로운 모델 아키텍처, 혁신적인 최적화 기법)
 - 7~8: 글로벌 주요 기업이 생성형 AI 기술을 직접적으로 개선한 사례
-- 5~6: 생성형 AI 활용 사례로 가치가 있지만 기술적 혁신이 크지 않은 경우
+- 5~6: 생성형 AI 기업용 사례로 가치가 있지만 기술적 혁신이 크지 않은 경우 (B2B 기업용)
 - 3~4: 일부 AI 관련성이 있으나, 비핵심적인 내용
 - 0~2: 사용자의 관심과 관련 없는 일반적인 비즈니스, 투자, 인프라 기사
 
 ### 응답 형식
 - 사용자가 제공한 기사 제목을 위의 기준에 따라 \`is_interested\` 값을 \`true\` 또는 \`false\`로 지정하여 분류합니다.
 - 각 기사에는 \`score\` 값을 추가하여 중요도를 0~10점으로 표시합니다.
-- JSON 형식으로 응답해야 합니다.
+- 다른 응답은 생략하고 JSON만 응답해야 합니다.
 
-### JSON 응답 예시:
-\`\`\`json
+### 응답 예시:
 {
   "articles": [
     {
@@ -59,7 +58,7 @@ const PromptPanel: React.FC<PromptPanelProps> = ({ onSubmit, data }) => {
       "score": 1
     }
   ]
-}\`\`\``;
+}`;
 
   const defaultUserPrompt = `다음은 기사 제목 목록입니다. 
 [필터링 조건]에 맞는 기사만 \`is_interested=true\`로 분류하고, 관심 없는 기사는 \`is_interested=false\`로 설정하여 JSON 형식으로 응답해주세요. 또한, 각 기사마다 중요도를 평가하여 \`score\` (0~10) 값을 추가해주세요.
