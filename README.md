@@ -19,8 +19,10 @@
 ![분석 결과](docs/images/result.jpg)
 
 ### 데모 영상
-![데모 영상](docs/images/VOC.mp4)
-
+<video width="100%" controls>
+  <source src="docs/images/VOC.mp4" type="video/mp4">
+  브라우저가 비디오 태그를 지원하지 않습니다.
+</video>
 
 ## 기술 스택
 
