@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/OutputPanel.css';
-import OpenAI from 'openai';
+import { AzureOpenAI } from "openai";
 
 interface PromptMessage {
   role: 'system' | 'user' | 'assistant';
@@ -17,8 +17,11 @@ const OutputPanel: React.FC<OutputPanelProps> = ({ prompt }) => {
   const [response, setResponse] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [viewMode, setViewMode] = React.useState<ViewMode>('table');
-  const client = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+  
+  const client = new AzureOpenAI({
+    apiKey: process.env.REACT_APP_AZURE_OPENAI_API_KEY,
+    apiVersion: "2024-02-15-preview",
+    endpoint: process.env.REACT_APP_AZURE_OPENAI_ENDPOINT,
     dangerouslyAllowBrowser: true
   });
 
@@ -27,19 +30,20 @@ const OutputPanel: React.FC<OutputPanelProps> = ({ prompt }) => {
       if (prompt.length > 0) {
         setIsLoading(true);
         try {
-          console.log('=== OpenAI API 호출 시작 ===');
-          console.log('API Key:', process.env.OPENAI_API_KEY);
+          console.log('=== Azure OpenAI API 호출 시작 ===');
           console.log('요청 메시지:', prompt);
           
-          const completion = await client.chat.completions.create({
-            model: "gpt-4o-mini",
+          const response = await client.chat.completions.create({
             messages: prompt,
+            model: "o3-mini",
+            max_tokens: 5000,
+            temperature: 0.7,
           });
           
-          console.log('API 응답:', completion);
-          setResponse(completion.choices[0].message.content || '');
+          console.log('API 응답:', response);
+          setResponse(response.choices[0].message.content || '');
         } catch (error) {
-          console.error('=== OpenAI API 호출 실패 ===');
+          console.error('=== Azure OpenAI API 호출 실패 ===');
           console.error('에러 상세:', error);
           setResponse('오류가 발생했습니다.');
         } finally {

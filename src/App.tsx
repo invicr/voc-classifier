@@ -5,6 +5,7 @@ import PromptPanel from './components/PromptPanel';
 import OutputPanel from './components/OutputPanel';
 import { VocItem } from './types';
 import './styles/App.css';
+import ErrorBoundary from './components/ErrorBoundary';
 
 interface PromptMessage {
   role: 'system' | 'user';
@@ -155,7 +156,9 @@ const App: React.FC = () => {
             <h3 className="panel-title">Output</h3>
           </div>
           <div className="panel-content">
-            <OutputPanel prompt={prompt} />
+            <ErrorBoundary>
+              <OutputPanel prompt={prompt} />
+            </ErrorBoundary>
           </div>
         </div>
       </div>
