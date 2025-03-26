@@ -7,10 +7,11 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3001;
+const host = '0.0.0.0';  // 모든 IP에서 접속 가능하도록 설정
 
 // CORS 설정
 app.use(cors({
-  origin: 'http://localhost:3000', // React 앱의 주소
+  origin: true, // 모든 origin 허용
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
@@ -32,8 +33,8 @@ app.post('/api/chat', async (req, res) => {
     
     const response = await client.chat.completions.create({
       messages: messages,
-      model: "gpt-4",
-      max_tokens: 1000,
+      model: "o3-mini",
+      max_tokens: 5000,
       temperature: 0.7,
     });
 
@@ -44,6 +45,8 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`서버가 포트 ${port}에서 실행 중입니다.`);
+app.listen(port, host, () => {
+  console.log(`서버가 다음 주소에서 실행 중입니다:`);
+  console.log(`  Local:            http://0.0.0.0:${port}`);
+  console.log(`  On Your Network:  http://${host}:${port}`);
 }); 
